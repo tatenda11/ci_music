@@ -1,1 +1,8 @@
 /**navbar style*/
+.jumbotron{
+    background-image: url("../../img/music-3507317_1280.jpg");
+    min-height: 30vh;
+    color: #fff;
+    background-attachment: fixed;
+    padding-left: 4%;;
+}

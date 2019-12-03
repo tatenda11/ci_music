@@ -1,6 +1,5 @@
 .collection {
     column-width: 280px;
-    background-color: grey;
     -webkit-column-count: 4; /* Chrome, Safari, Opera */
     -moz-column-count: 4; /* Firefox */
     column-count: 4;
@@ -20,7 +19,9 @@
     }
  
  }
- 
+ body{
+    background-color: #f3f3f3;
+}
 .collection-item{
     height: auto;
     margin-top:15px;

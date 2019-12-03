@@ -1,6 +1,6 @@
 <section>
-    <div class="jumbotron">
-        Welcome to the music shop
+    <div class="jumbotron" >
+        <h1>Welcome to the music shop</h1>
     </div>
 </section>
 <div class='container'>

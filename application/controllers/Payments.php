@@ -60,6 +60,7 @@ class Payments extends CI_Controller {
 
     private function send_notification_email($to, $subject, $message,$items){
         $this->load->helper('email');
+        $grt_text = "Hie {$this->session->userdata('name')}"; 
         email_invoice($message, $to, $subject, $grt_text, $items);
     }
 }

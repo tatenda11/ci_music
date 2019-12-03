@@ -1,6 +1,6 @@
 <?php 
 class M_Payment extends CI_Model{
-    private $table = 'd_admin';
+    private $table = 'm_payments';
     public  $unique_key = 0;
 
     public function add_payment($params){
