@@ -51,7 +51,7 @@
   </nav>
 
   <!-- Page Content -->
-  <div class="container">
+  <div>
         <?php if(isset($page)):?>
             <?php  $this->load->view($page); ?>
         <?php endif; ?>
