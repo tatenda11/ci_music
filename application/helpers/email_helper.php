@@ -2,7 +2,7 @@
 
 if(!function_exists('app_email_sender')){
    
-    function app_email_sender($message, $to, $subject, $grt_text)
+    function email_invoice($message, $to, $subject, $grt_text, $items = [])
     {
         $obj =& get_instance();
         $obj->load->library('email');
@@ -22,6 +22,7 @@ if(!function_exists('app_email_sender')){
         $obj->email->subject($subject);
         $data['message'] = $message;
         $data['greeting_text'] = $grt_text ?? '';
+        $data['item'] = $items;
         $mesg = $obj->load->view('templates/view_email',$data,true);
         $obj->email->message($mesg);
         @$mail = $obj->email->send();

@@ -37,8 +37,8 @@ class Payments extends CI_Controller {
                 'swipe_status' => $status
             );
             $this->payments->add_payment($pay_params);
-            $message = "Hie {$$this->session->userdata('name')} \n Your purchase of {$$data['album']['title']} was succesifully.Thank you for shopping with us \n regards ";
-            $this->send_notification_email($this->session->userdata('email'), 'Album purchase success', $message);
+            $message = "Your purchase of {$data['album']['title']} was succesifully.Kindly find your invoice ";
+            $this->send_notification_email($this->session->userdata('email'), 'Album purchase success', $message, $payments_array);
             redirect(base_url("Payments/purchase_success"));
             return;
         }
@@ -58,7 +58,8 @@ class Payments extends CI_Controller {
 		$this->load->view('frontend/view_layout',$data);
     }
 
-    private function send_notification_email($to, $subject, $message){
-
+    private function send_notification_email($to, $subject, $message,$items){
+        $this->load->helper('email');
+        email_invoice($message, $to, $subject, $grt_text, $items);
     }
 }
