@@ -1,6 +1,6 @@
 <?php
 
-class Albums{
+class AlbumsAdapter{
 
     public function get_albums(){
         try{

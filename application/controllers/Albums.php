@@ -8,9 +8,23 @@ class Albums extends CI_Controller {
 		$data['title'] = 'Albums | Music Shop';
 		$data['page'] = 'frontend/view_store';
 		$data['css_array'] = array('store.css');
-		$this->load->library('Albums','albums' );
-		$data['albums'] = $this->albums->get_albums();
-		print_r($data['albums']);
+		$lib = $this->load->library('albumsAdapter');
+		$data['albums'] = $this->albumsadapter->get_albums();
 		$this->load->view('frontend/view_layout',$data);
+	}
+
+	public function view(){
+		$id = (int) $this->uri->segment(4);
+		if($id == 0){
+			redirect(base_url());
+		}
+		$lib = $this->load->library('albumsAdapter');
+		$data['albums'] = $this->albumsadapter->get_album($id);
+		
+		$data['title'] = 'Albums | Music Shop';
+		$data['page'] = 'frontend/view_buy';
+		$data['css_array'] = array('store.css');
+		
+		//$this->load->view('frontend/view_layout',$data);
 	}
 }

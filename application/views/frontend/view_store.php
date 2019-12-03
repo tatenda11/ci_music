@@ -6,16 +6,15 @@
 <div class='container'>
     <section id='items-container'>
         <div class="collection">
-           <?php for($i = 0; $i < 12; $i ++):?>
+           <?php foreach( $albums as  $album):?>
                 <div class="card collection-item" >
-                    <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <h5 class="card-title"><?= $album['title'] ?></h5>
+                        <p class="card-text"><strong>$ <?= $album['id']?></strong></p>
+                        <a href="<?= base_url("Albums/view/".$album['id']) ?>" class="btn btn-primary">Buy Now</a>
                     </div>
                 </div>
-           <?php endfor;?>
+           <?php endforeach;?>
         </div>
     </section>
 <div>
