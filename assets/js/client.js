@@ -1,6 +1,6 @@
 //$(document).ready(function(){
     //rk_test_DcibeRpdjOo6eEcchZbP1mWF00JobfrQoa
-var stripe = Stripe('rk_test_DcibeRpdjOo6eEcchZbP1mWF00JobfrQoa');
+var stripe = Stripe('pk_test_xI5ilWvoSHnR6uF2UV7WTwre00UcjJb9OM');
 var elements = stripe.elements();
 var style = {
     base: {

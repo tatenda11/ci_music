@@ -33,7 +33,7 @@
                     </tr>
                 </tbody>
            </table>
-           <form action="/charge" method="post" id="payment-form" class='billable-class'>
+           <?= form_open_multipart("Payments/pay/{$album['id']}", array('id' => 'payment-form', 'class'=>'billable-class' )) ?>
                 <div class="form-row">
                     <label for="card-element">
                     Credit or debit card
