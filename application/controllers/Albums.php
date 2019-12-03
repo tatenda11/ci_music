@@ -5,6 +5,8 @@ class Albums extends CI_Controller {
     
     public function index()
 	{
-		$this->load->view('frontend/view_layout');
+		$data['title'] = 'Albums | Music Shop';
+		$data['page'] = 'frontend/view_store';
+		$this->load->view('frontend/view_layout',$data);
 	}
 }
