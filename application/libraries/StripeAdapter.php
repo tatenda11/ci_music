@@ -13,7 +13,7 @@ class StripeAdapter{
             return;
        }
        \Stripe\Stripe::setApiKey($this->api_key);
-       return Stripe\PaymentIntent::create([$items_array]);
+       return Stripe\Charge::create([$items_array]);
    }
 
    public function set_api_key($key){

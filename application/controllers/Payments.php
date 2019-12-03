@@ -19,12 +19,27 @@ class Payments extends CI_Controller {
         $this->load->library('albumsAdapter');
         $data['album'] = $this->albumsadapter->get_album($id)[0];
         $payments_array = array(
-            "amount" => $data['album']['id'],
+            "amount" => ($data['album']['id'] * 100), // convert to dollars from cents
             "currency" => "usd",
-            "payment_method_types" => ['card'],
-            'statement_descriptor' => "purchase"
+            'description' => 'Album purchase',
+            'source' => $_POST["stripeToken"],  
         );
         $this->stripeadapter->set_api_key($this->stripe_api_key);
-        print_r($this->stripeadapter->create_payment($payments_array));
+        $this->load->model('M_Payment', 'payments');
+        $pay_params = array(
+            'user_id' => $this->session->userdata('userId') ?? 0,
+            'amount' => $data['album']['id'],
+            'album_id' => $data['album']['id'],
+            'remarks' => 'Album purchase',
+             
+        );
+        try{
+
+        }
+        catch(Exception $e){
+            $data['error'] = true;
+            $data['message'] =  $e->getMessage();
+        }
+        
     }
 }

@@ -2,7 +2,19 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 //https://refactoring.guru/design-patterns/adapter/php/example
 class Albums extends CI_Controller {
-    
+	
+	public function __construct(){
+		parent::__construct();
+		if(empty( $this->session->userdata('userId'))){
+			$session_data = array(
+				'userId' => 21,
+				'email'  => 'user@fakeemail.com',
+				'name'   => 'Johm Doe' 
+			);
+			$this->session->set_userdata($session_data);
+		}
+	}
+
     public function index()
 	{
 		$data['title'] = 'Albums | Music Shop';
