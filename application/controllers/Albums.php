@@ -18,7 +18,7 @@ class Albums extends CI_Controller {
 		if($id == 0){
 			redirect(base_url());
 		}
-		$lib = $this->load->library('albumsAdapter');
+		$this->load->library('albumsAdapter');
 		$data['album'] = $this->albumsadapter->get_album($id)[0];
 		$data['title'] = 'Albums | Music Shop';
 		$data['page'] = 'frontend/view_view_album';
